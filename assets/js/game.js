@@ -75,4 +75,4 @@ var fight = function(enemyName) {
       }
     } // end of while loop
   }; // end of fight function
-  //
+  // fix
