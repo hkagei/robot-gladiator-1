@@ -27,6 +27,12 @@ var playerInfo = {
   }
 };
 
+var randomNumber = function(min, max){
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value
+}
+
 var enemyInfo = [
   {
     name: "Roborto",
@@ -103,7 +109,20 @@ var fight = function(enemy) {
     }
   }
 };
+var endGame = function () {
+  // if player is still alive, player wins!
+  if (playerInfo.health > 0) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + ".")
+  }
+  else {
+    window.alert("You've lost your robot in battle.");
+  }
+  var randomNumber = function() {
+    var value = Math.floor(Math.random() * 21) + 40;
 
+    return value
+  };
+}
 var startGame = function() {
   // reset player stats
   playerInfo.health = 100;
@@ -112,6 +131,7 @@ var startGame = function() {
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
+      debugger;
 
       var pickedEnemyObj = enemyInfo[i];
 
@@ -128,30 +148,10 @@ var startGame = function() {
       window.alert("You have lost your robot in battle! Game Over!");
       break;
     }
-    var randomNumber = function(40, 60) {
-      var value = Math.floor(Math.random() * (21)) + 40;
-
-      return value
-    };
     endGame();
   }
 }
 // function to end the entire game
-var endGame = function () {
-  // if player is still alive, player wins!
-  if (playerInfo.health > 0) {
-    window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + ".")
-  }
-  else {
-    window.alert("You've lost your robot in battle.");
-  }
-  var randomNumber = function() {
-    var value = Math.floor(Math.random() * 21) + 40;
-
-    return value
-  };
-}
-
 var playAgainConfirm = window.confirm("Would you like to play again?");
 if (playAgainConfirm) {
   // restart the game
@@ -160,12 +160,7 @@ if (playAgainConfirm) {
 else {
   window.alert("Thank you for playing Robot Gladiators! Come back soon!");
 }
-var randomNumber = function() {
-  var value = Math.floor(Math.random() * 21) + 40;
 
-  return value
-};
-;
 }
 
 var shop = function() {
@@ -194,11 +189,6 @@ case "upgrade":
       shop();
       break;
   }
-  var randomNumber = function() {
-    var value = Math.floor(Math.random() * 21) + 40;
-
-    return value
-  };
 };
 // start the game when the page loads
 startGame();
